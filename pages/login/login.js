@@ -8,6 +8,14 @@ login.addEventListener("click", loginUser);
 
 function loginUser() {
   console.log(users);
+  if (!validateEmail(userEmail.value)) {
+    alert("wrong email");
+    return;
+  }
+  if (!validatePassword(userPassword.value)) {
+    alert("wrong password");
+    return;
+  }
   let user = users.find((user) => user.email === userEmail.value);
   if (user && String(user.password) === userPassword.value) {
     localStorage.setItem("loggedInUser", JSON.stringify(user));

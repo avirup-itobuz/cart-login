@@ -10,10 +10,19 @@ const register = document.getElementById("register");
 const getOtp = document.getElementById("sendOtp");
 getOtp.addEventListener("click", sendOtp);
 register.addEventListener("click", registerUser);
+
 if (localStorage.getItem("users")) {
   users = localStorage.getItem("users");
 }
 function sendOtp(e) {
+  if (localStorage.getItem("users")) {
+    let users = JSON.parse(localStorage.getItem("users"));
+    let user = users.find((user) => user.email === useremail.value);
+    if (user) {
+      alert("email already exist");
+      return;
+    }
+  }
   console.log(e);
   if (validateEmail(useremail.value)) {
     generated_otp = Math.round(Math.random() * 100000);

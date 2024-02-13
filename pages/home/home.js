@@ -43,7 +43,6 @@ function loadProducts() {
       h3.innerText = `$${product.price}`;
       product_div.append(h2, h3);
       const cart_item = cart.find((ele) => ele.id == product.id);
-      console.log(cart_item);
       if (cart_item && cart_item.quantity > 0) {
         const updateQuantity = document.createElement("div");
         updateQuantity.setAttribute("class", "update-quantity");
