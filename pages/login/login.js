@@ -7,7 +7,6 @@ const login = document.getElementById("login");
 login.addEventListener("click", loginUser);
 
 function loginUser() {
-  console.log(users);
   if (!validateEmail(userEmail.value)) {
     alert("wrong email");
     return;

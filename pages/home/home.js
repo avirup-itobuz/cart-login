@@ -22,9 +22,6 @@ function loadProducts() {
   loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
   userInfo.innerText = "Hello, " + loggedUser.name;
   cart = loggedUser.cart;
-  console.log(cart);
-  //   if (localStorage.getItem("cart"))
-  //     cart = JSON.parse(localStorage.getItem("cart"));
   products
     .map((product) => {
       const product_div = document.createElement("div");
@@ -81,7 +78,6 @@ function loadProducts() {
   cartBtn.innerText = count;
 }
 function increaseCart(e) {
-  console.log(e.target.dataset.id);
   products = JSON.parse(localStorage.getItem("products"));
   //   if (localStorage.getItem("cart"))
   //     cart = JSON.parse(localStorage.getItem("cart"));
@@ -90,37 +86,29 @@ function increaseCart(e) {
   cart = loggedUser.cart;
   const data = addToCart(parseInt(e.target.dataset.id), products, cart);
   loggedUser.cart = data;
-  console.log(users);
   for (let i = 0; i < users.length; i++) {
     if (users[i].userId == loggedUser.userId) {
       users[i].cart = data;
     }
   }
-  console.log(users);
   localStorage.setItem("loggedInUser", JSON.stringify(loggedUser));
   localStorage.setItem("users", JSON.stringify(users));
   loadProducts();
 }
 function decreaseCart(e) {
-  console.log(e.target.dataset.id);
   products = JSON.parse(localStorage.getItem("products"));
-  //   if (localStorage.getItem("cart"))
-  //     cart = JSON.parse(localStorage.getItem("cart"));
   users = JSON.parse(localStorage.getItem("users"));
   loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
   cart = loggedUser.cart;
   const data = removeItem(parseInt(e.target.dataset.id), products, cart);
   loggedUser.cart = data;
-  console.log(users);
   for (let i = 0; i < users.length; i++) {
     if (users[i].userId == loggedUser.userId) {
       users[i].cart = data;
     }
   }
-  console.log(users);
   localStorage.setItem("loggedInUser", JSON.stringify(loggedUser));
   localStorage.setItem("users", JSON.stringify(users));
-  //   localStorage.setItem("cart", JSON.stringify(data));
   loadProducts();
 }
 
@@ -131,13 +119,6 @@ if (!localStorage.getItem("products")) {
   //   }
 }
 
-// if (!localStorage.getItem("products")) {
-//   setTimeout(() => {
-//     loadProducts();
-//   }, 0);
-// } else {
-//   loadProducts();
-// }
 
 if (!localStorage.getItem("loggedInUser")) {
   window.location = "/pages/register/register.html";

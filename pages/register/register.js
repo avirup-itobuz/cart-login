@@ -23,7 +23,6 @@ function sendOtp(e) {
       return;
     }
   }
-  console.log(e);
   if (validateEmail(useremail.value)) {
     generated_otp = Math.round(Math.random() * 100000);
     localStorage.setItem("otp", generated_otp);
@@ -40,11 +39,10 @@ function sendEmail(generated_otp) {
   };
   const serviceId = "service_m9cq60m";
   const template_id = "template_ymrtrhj";
-  // emailjs
-  //   .send(serviceId, template_id, params)
-  //   .then((res) => console.log(res))
-  //   .catch((err) => console.log(err));
-  console.log("demo email sent");
+  emailjs
+    .send(serviceId, template_id, params)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
 }
 function authenticateOtp() {
   if (JSON.parse(localStorage.getItem("otp")) === Number(otp.value))
@@ -67,8 +65,6 @@ function registerUser() {
     if (localStorage.getItem("users")) {
       users = JSON.parse(localStorage.getItem("users"));
     }
-    console.log(users);
-    console.log(user);
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
     alert("registration successful");
