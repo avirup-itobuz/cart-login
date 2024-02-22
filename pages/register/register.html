@@ -1,49 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/register.css" />
-    <title>Registration Page</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="hero"></div>
-      <div class="form-container">
-        <h2>FlipKart</h2>
-        <h3>Welcome!!</h3>
-        <form action="" onsubmit="event.preventDefault();">
-          <input type="name" id="name" placeholder="name" value="" />
-          <div class="email-container">
-            <input type="email" id="email" placeholder="email" value="" />
-            <button id="sendOtp">Send Otp</button>
-          </div>
-          <input type="otp_data" id="otp" placeholder="enter otp" value="" />
-          <input
-            type="password_data"
-            id="password"
-            placeholder="password"
-            value=""
-          />
-          <button id="register">Register</button>
-        </form>
-        <h4>Already have an account?</h4>
-        <form action="../login/login.html">
-          <button>Go to Login</button>
-        </form>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../css/register.css" />
+  <title>Registration Page</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="hero"></div>
+    <div class="form-container">
+      <h2>FlipKart</h2>
+      <h3>Welcome!!</h3>
+      <form action="" onsubmit="event.preventDefault();">
+        <input type="name" id="name" placeholder="name" value="" />
+        <div class="email-container">
+          <input type="email" id="email" placeholder="email" value="" />
+          <button id="sendOtp">Send Otp</button>
+        </div>
+        <input type="otp_data" id="otp" placeholder="enter otp" value="" />
+        <input type="password" id="password" placeholder="password" value="" />
+        <button id="register">Register</button>
+      </form>
+      <h4>Already have an account?</h4>
+      <form action="../login/login.html">
+        <button>Go to Login</button>
+      </form>
     </div>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init({
-          publicKey: "a1b1npHIXYThbU9Km",
-        });
-      })();
-    </script>
-    <script src="register.js" type="module"></script>
-  </body>
+  </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "a1b1npHIXYThbU9Km",
+      });
+    })();
+  </script>
+  <script src="register.js" type="module"></script>
+</body>
+
 </html>

@@ -23,20 +23,21 @@ button {
     margin: 20px;
 
     h1 {
-        font-size: 40px;
+        font-size: 35px;
         color: rgb(52, 45, 45);
     }
 }
 
 .button {
     display: flex;
+    align-items: center;
 }
 
 .cart-button,
 .logout-button {
-    height: 50px;
-    width: 50px;
-    margin: 20px;
+    display: flex;
+    height: 35px;
+    width: 35px;
     position: relative;
 
     img {
@@ -59,6 +60,9 @@ button {
     }
 }
 
+.logout-button {
+    margin-right: 20px;
+}
 
 
 
