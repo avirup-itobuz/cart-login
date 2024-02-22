@@ -7,16 +7,6 @@
     font-family: "Fredoka", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0;
-    padding: 0;
-}
-
 h2 {
     font-size: 25px;
 }
@@ -52,6 +42,14 @@ button {
         font-size: 35px;
         color: rgb(52, 45, 45);
     }
+}
+
+.inactive {
+    display: none;
+}
+
+.active {
+    display: block;
 }
 
 .options {
@@ -146,24 +144,30 @@ input:focus {
     margin: auto;
     width: 100%;
     max-width: 1024px;
+    margin-bottom: 10px;
+
+    .carousel-item {
+        width: 100%;
+        max-width: 1024px;
+    }
 
     .carousel-item0 {
         background-image: url(../images/carousel1.webp);
-        min-height: 200px;
+        min-height: 250px;
         background-position: center;
         background-repeat: no-repeat;
     }
 
     .carousel-item1 {
         background-image: url(../images/carousel2.webp);
-        min-height: 200px;
+        min-height: 250px;
         background-position: center;
         background-repeat: no-repeat;
     }
 
     .carousel-item2 {
         background-image: url(../images/carousel3.webp);
-        min-height: 200px;
+        min-height: 250px;
         background-position: center;
         background-repeat: no-repeat;
     }
