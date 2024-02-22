@@ -1,7 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 25px;
 }
 
 a {
@@ -118,6 +134,29 @@ input:focus {
 
 .logout-button {
   margin-right: 20px;
+}
+
+.carousel {
+  margin: auto;
+  width: 75%;
+}
+.carousel .carousel-item0 {
+  background-image: url(../images/carousel1.webp);
+  min-height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.carousel .carousel-item1 {
+  background-image: url(../images/carousel2.webp);
+  min-height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.carousel .carousel-item2 {
+  background-image: url(../images/carousel3.webp);
+  min-height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #product-container {

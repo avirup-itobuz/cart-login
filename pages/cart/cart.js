@@ -99,12 +99,11 @@ function loadProducts() {
     count += 1;
     total += parseInt(product.quantity) * parseInt(product.price);
   }
-  const cartBtn = document.getElementById("cart-quantity");
-  cartBtn.innerText = count;
   const quantity = document.getElementById("quantity");
   quantity.innerText = count;
   const totalPrice = document.getElementById("total-price-text");
   totalPrice.innerText = "$" + total;
+  console.log(count + " " + count + " " + total);
 }
 
 if (!localStorage.getItem("loggedInUser")) {

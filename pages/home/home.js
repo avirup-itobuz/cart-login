@@ -1,6 +1,7 @@
 import { addToCart, removeItem } from "../../helper/helper.js";
 import { data } from "../../db/db.js";
 
+let carouselCount = 0;
 let products = [];
 let cart = [];
 let users;
@@ -265,6 +266,17 @@ slider.addEventListener("input", (e) => {
   maxPrice = e.target.value;
   filterProducts();
 });
+setInterval(() => {
+  carouselCount++;
+  console.log(carouselCount);
+  document
+    .getElementsByClassName(`carousel-item${(carouselCount - 1) % 3}`)[0]
+    .classList.replace("active", "inactive");
+
+  document
+    .getElementsByClassName(`carousel-item${carouselCount % 3}`)[0]
+    .classList.replace("inactive", "active");
+}, 1500);
 if (!localStorage.getItem("products")) {
   localStorage.setItem("products", JSON.stringify(data));
   //   if (!localStorage.getItem("cart")) {
