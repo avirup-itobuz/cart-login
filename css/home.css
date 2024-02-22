@@ -47,7 +47,7 @@ button {
 }
 
 .active {
-  display: block;
+  display: flex;
 }
 
 .options {
@@ -137,30 +137,34 @@ input:focus {
 .carousel {
   margin: auto;
   width: 100%;
-  max-width: 1024px;
   margin-bottom: 10px;
 }
 .carousel .carousel-item {
   width: 100%;
-  max-width: 1024px;
 }
 .carousel .carousel-item0 {
-  background-image: url(../images/carousel1.webp);
-  min-height: 250px;
-  background-position: center;
-  background-repeat: no-repeat;
+  justify-content: center;
+  width: 100%;
+}
+.carousel .carousel-item0 img {
+  width: 100%;
+  max-height: 350px;
 }
 .carousel .carousel-item1 {
-  background-image: url(../images/carousel2.webp);
-  min-height: 250px;
-  background-position: center;
-  background-repeat: no-repeat;
+  justify-content: center;
+  width: 100%;
+}
+.carousel .carousel-item1 img {
+  width: 100%;
+  max-height: 350px;
 }
 .carousel .carousel-item2 {
-  background-image: url(../images/carousel3.webp);
-  min-height: 250px;
-  background-position: center;
-  background-repeat: no-repeat;
+  justify-content: center;
+  width: 100%;
+}
+.carousel .carousel-item2 img {
+  width: 100%;
+  max-height: 350px;
 }
 
 #product-container {
@@ -265,5 +269,9 @@ input:focus {
     position: absolute;
     width: 35vw;
     margin-bottom: 0px;
+  }
+  .carousel-item {
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }/*# sourceMappingURL=home.css.map */
