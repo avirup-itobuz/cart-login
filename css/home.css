@@ -138,7 +138,8 @@ input:focus {
 
 .carousel {
   margin: auto;
-  width: 75%;
+  width: 100%;
+  max-width: 1024px;
 }
 .carousel .carousel-item0 {
   background-image: url(../images/carousel1.webp);
