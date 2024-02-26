@@ -1,54 +1,47 @@
 import { addToCart, removeItem } from "../../helper/helper.js";
 import { data } from "../../db/db.js";
 
-var products = [];
-var cart = [];
-var users;
-var loggedUser;
+let products = [];
+let cart = [];
+let users;
+let loggedUser;
 const productContainer = document.getElementById("product-container");
 const logOut = document.getElementsByClassName("logout-button");
+const quantity = document.getElementById("quantity");
+const totalPrice = document.getElementById("total-price-text");
+
 logOut[0].addEventListener("click", () => {
   localStorage.removeItem("loggedInUser");
   window.location = "/";
 });
 function increaseCart(e) {
-  console.log(e.target.dataset.id);
   products = JSON.parse(localStorage.getItem("products"));
-  //   if (localStorage.getItem("cart"))
-  //     cart = JSON.parse(localStorage.getItem("cart"));
   users = JSON.parse(localStorage.getItem("users"));
   loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
   cart = loggedUser.cart;
   const data = addToCart(parseInt(e.target.dataset.id), products, cart);
   loggedUser.cart = data;
-  console.log(users);
   for (let i = 0; i < users.length; i++) {
-    if (users[i].userId == loggedUser.userId) {
+    if (users[i].userId === loggedUser.userId) {
       users[i].cart = data;
     }
   }
-  console.log(users);
   localStorage.setItem("loggedInUser", JSON.stringify(loggedUser));
   localStorage.setItem("users", JSON.stringify(users));
   loadProducts();
 }
 function decreaseCart(e) {
-  console.log(e.target.dataset.id);
   products = JSON.parse(localStorage.getItem("products"));
-  //   if (localStorage.getItem("cart"))
-  //     cart = JSON.parse(localStorage.getItem("cart"));
   users = JSON.parse(localStorage.getItem("users"));
   loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
   cart = loggedUser.cart;
   const data = removeItem(parseInt(e.target.dataset.id), products, cart);
   loggedUser.cart = data;
-  console.log(users);
   for (let i = 0; i < users.length; i++) {
-    if (users[i].userId == loggedUser.userId) {
+    if (users[i].userId === loggedUser.userId) {
       users[i].cart = data;
     }
   }
-  console.log(users);
   localStorage.setItem("loggedInUser", JSON.stringify(loggedUser));
   localStorage.setItem("users", JSON.stringify(users));
   loadProducts();
@@ -111,15 +104,11 @@ function loadProducts() {
   let count = 0;
   let total = 0;
   for (let product of cart) {
-    // count += product.quantity;
     count += 1;
     total += parseInt(product.quantity) * parseInt(product.price);
   }
-  const quantity = document.getElementById("quantity");
   quantity.innerText = count;
-  const totalPrice = document.getElementById("total-price-text");
   totalPrice.innerText = "$" + total;
-  console.log(count + " " + count + " " + total);
 }
 
 if (!localStorage.getItem("loggedInUser")) {

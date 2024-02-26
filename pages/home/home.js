@@ -98,7 +98,6 @@ function filterProducts() {
           searchWord.length > 0 &&
           product.title.toLowerCase().includes(searchWord.toLowerCase())
         ) {
-          console.log(typeof product.price);
           filterCount++;
           const product_div = document.createElement("div");
           product_div.setAttribute("class", "product");
@@ -150,7 +149,6 @@ function filterProducts() {
     products
       .map((product) => {
         if (product.price <= maxPrice) {
-          console.log(typeof product.price);
           filterCount++;
           const product_div = document.createElement("div");
           product_div.setAttribute("class", "product");
@@ -217,8 +215,6 @@ function sort(param) {
 }
 function increaseCart(e) {
   products = JSON.parse(localStorage.getItem("products"));
-  //   if (localStorage.getItem("cart"))
-  //     cart = JSON.parse(localStorage.getItem("cart"));
   users = JSON.parse(localStorage.getItem("users"));
   loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
   cart = loggedUser.cart;
@@ -252,7 +248,6 @@ function decreaseCart(e) {
   else loadProducts();
 }
 search.addEventListener("input", (e) => {
-  console.log(e.target.value);
   searchWord = e.target.value.trim();
   filterProducts();
 });
@@ -261,31 +256,15 @@ sortParam.addEventListener("change", (e) => {
   else if (e.target.value === "highToLow") sort(e.target.value);
 });
 slider.addEventListener("input", (e) => {
-  console.log(e.target.value);
   maxPriceSpan.innerText = "$" + e.target.value;
   maxPrice = e.target.value;
   filterProducts();
 });
-// setInterval(() => {
-//   carouselCount++;
-//   console.log(carouselCount);
-
-// document
-//   .getElementsByClassName(`carousel-item${(carouselCount - 1) % 3}`)[0]
-//   .classList.replace("active", "inactive");
-
-// document
-//   .getElementsByClassName(`carousel-item${carouselCount % 3}`)[0]
-//   .classList.replace("inactive", "active");
-// }, 1500);
 setInterval(() => {
-  carouselImage.src = `../../images/carousel${carouselCount++ % 3}.png`;
+  carouselImage.src = `../../images/carousel_${carouselCount++ % 3}.png`;
 }, 1500);
 if (!localStorage.getItem("products")) {
   localStorage.setItem("products", JSON.stringify(data));
-  //   if (!localStorage.getItem("cart")) {
-  //     localStorage.setItem("cart", []);
-  //   }
 }
 if (!localStorage.getItem("loggedInUser")) {
   window.location = "/pages/register/register.html";

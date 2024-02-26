@@ -1,16 +1,16 @@
 export function addToCart(id, products, cart) {
-  let product = products.find((product) => product.id == id);
-  if (cart.length == 0) {
+  let product = products.find((product) => product.id === id);
+  if (cart.length === 0) {
     product.quantity++;
     cart.push(product);
   } else {
-    let response = cart.find((ele) => ele.id == id);
+    let response = cart.find((ele) => ele.id === id);
     if (!response) {
       product.quantity++;
       cart.push(product);
     } else {
       for (let product of cart) {
-        if (product.id == id) {
+        if (product.id === id) {
           product.quantity++;
         }
       }
@@ -20,9 +20,9 @@ export function addToCart(id, products, cart) {
 }
 export function removeItem(id, products, cart) {
   for (let product of cart) {
-    if (product.id == id) {
+    if (product.id === id) {
       product.quantity--;
-      if (product.quantity == 0) {
+      if (product.quantity === 0) {
         cart = deleteItem(id, cart);
         return cart;
       } else {
@@ -32,7 +32,7 @@ export function removeItem(id, products, cart) {
   }
 }
 function deleteItem(id, cart) {
-  cart = cart.filter((item) => item.id != id);
+  cart = cart.filter((item) => item.id !== id);
   return cart;
 }
 
