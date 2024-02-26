@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Fredoka", sans-serif;
+    font-family: 'Mukta', sans-serif;
 }
 
 a {
@@ -22,16 +22,18 @@ button {
 
 .nav {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     box-shadow: 1px 1px 5px black;
     margin-bottom: 10px;
 }
 
 .page-title {
-    margin: 20px;
+    margin: 10px;
+    margin-left: 10px;
 
     h1 {
-        font-size: 35px;
+        font-size: 28px;
         color: rgb(52, 45, 45);
     }
 }
@@ -43,9 +45,8 @@ button {
 
 .cart-button,
 .logout-button {
-    display: flex;
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     position: relative;
 
     img {
@@ -88,7 +89,8 @@ button {
     margin: 10px;
     padding: 10px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -182,4 +184,18 @@ button {
 hr {
     width: 80%;
     margin: auto;
+}
+
+@media screen and (min-width:768px) {
+    .product {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width:968px) {
+    .flex {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }

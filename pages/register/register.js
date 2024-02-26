@@ -1,5 +1,5 @@
 import { validateEmail, validatePassword } from "../../helper/helper.js";
-
+import { data } from "../../helper/constants.js";
 let users = [];
 let generated_otp = 0;
 const username = document.getElementById("name");
@@ -32,13 +32,13 @@ function sendOtp(e) {
   }
 }
 function sendEmail(generated_otp) {
-  var params = {
+  let params = {
     name: username.value,
     email: useremail.value,
     otp: generated_otp,
   };
-  const serviceId = "service_m9cq60m";
-  const template_id = "template_ymrtrhj";
+  const serviceId = data.serviceId;
+  const template_id = data.template_id_otp;
   emailjs
     .send(serviceId, template_id, params)
     .then((res) => console.log(res))

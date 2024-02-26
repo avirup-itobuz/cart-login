@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Fredoka", sans-serif;
+  font-family: "Mukta", sans-serif;
 }
 
 h2 {
@@ -24,7 +24,7 @@ button {
   align-items: center;
   justify-content: space-between;
   box-shadow: 1px 1px 5px black;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .nav-main {
@@ -35,10 +35,11 @@ button {
 }
 
 .page-title {
-  margin: 20px;
+  margin: 10px;
+  margin-left: 10px;
 }
 .page-title h1 {
-  font-size: 35px;
+  font-size: 30px;
   color: rgb(52, 45, 45);
 }
 
@@ -89,10 +90,10 @@ input:focus {
 
 .search-bar {
   left: 30%;
-  height: 40px;
+  height: 35px;
   width: 85vw;
   max-width: 450px;
-  font-size: 20px;
+  font-size: 18px;
   background-image: url(../images/search.svg);
   background-repeat: no-repeat;
   background-position: 98% 50%;
@@ -106,8 +107,8 @@ input:focus {
 
 .cart-button,
 .logout-button {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   position: relative;
 }
 .cart-button img,
@@ -118,8 +119,9 @@ input:focus {
 .cart-button .cart-quantity,
 .logout-button .cart-quantity {
   position: absolute;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
+  font-size: 12px;
   border-radius: 20px;
   color: white;
   top: 0;
@@ -137,17 +139,18 @@ input:focus {
 .carousel {
   margin: auto;
   width: 100%;
+  min-height: 150px;
   margin-bottom: 10px;
 }
 .carousel .carousel-item {
   width: 100%;
-}
-.carousel .carousel-item0 {
+  min-height: 200px;
   justify-content: center;
-  width: 100%;
 }
-.carousel .carousel-item0 img {
+.carousel .carousel-item img {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   max-height: 350px;
 }
 .carousel .carousel-item1 {
@@ -196,6 +199,8 @@ input:focus {
 .img-container img {
   width: 80%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
   margin: auto;
   text-align: center;
@@ -271,7 +276,8 @@ input:focus {
     margin-bottom: 0px;
   }
   .carousel-item {
-    padding-left: 120px;
-    padding-right: 120px;
+    margin: auto;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }/*# sourceMappingURL=home.css.map */

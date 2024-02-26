@@ -5,7 +5,7 @@ export function addToCart(id, products, cart) {
     cart.push(product);
   } else {
     let response = cart.find((ele) => ele.id == id);
-    if (response === undefined) {
+    if (!response) {
       product.quantity++;
       cart.push(product);
     } else {

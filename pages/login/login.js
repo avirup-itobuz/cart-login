@@ -1,4 +1,5 @@
 import { validateEmail, validatePassword } from "../../helper/helper.js";
+import { data } from "../../helper/constants.js";
 
 const users = JSON.parse(localStorage.getItem("users"));
 const userEmail = document.getElementById("email");
@@ -25,8 +26,6 @@ function loginUser() {
 }
 login.addEventListener("click", loginUser);
 forgotPassword.addEventListener("click", () => {
-  // let reset_otp = Math.round(Math.random() * 100000);
-  // localStorage.setItem("resetOtp", JSON.stringify(reset_otp));
   if (userEmail.value.trim().length === 0) {
     alert("invalid email");
     return;
@@ -37,13 +36,12 @@ forgotPassword.addEventListener("click", () => {
     return;
   }
   localStorage.setItem("resetEmail", JSON.stringify(userEmail.value));
-  var params = {
+  let params = {
     name: "user",
     email: userEmail.value,
-    // otp: reset_otp,
   };
-  const serviceId = "service_m9cq60m";
-  const template_id = "template_0slycka";
+  const serviceId = data.serviceId;
+  const template_id = data.template_id_reset;
   emailjs
     .send(serviceId, template_id, params)
     .then((res) => {
