@@ -8,6 +8,7 @@ const password = document.getElementById("password");
 const otp = document.getElementById("otp");
 const register = document.getElementById("register");
 const getOtp = document.getElementById("sendOtp");
+
 getOtp.addEventListener("click", sendOtp);
 register.addEventListener("click", registerUser);
 
@@ -31,6 +32,7 @@ function sendOtp(e) {
     alert("invalid email or password");
   }
 }
+
 function sendEmail(generated_otp) {
   let params = {
     name: username.value,
@@ -44,6 +46,7 @@ function sendEmail(generated_otp) {
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 }
+
 function authenticateOtp() {
   if (JSON.parse(localStorage.getItem("otp")) === Number(otp.value))
     return true;

@@ -238,7 +238,7 @@ function decreaseCart(e) {
   const data = removeItem(parseInt(e.target.dataset.id), products, cart);
   loggedUser.cart = data;
   for (let i = 0; i < users.length; i++) {
-    if (users[i].userId == loggedUser.userId) {
+    if (users[i].userId === loggedUser.userId) {
       users[i].cart = data;
     }
   }
