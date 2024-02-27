@@ -18,6 +18,7 @@ export function addToCart(id, products, cart) {
   }
   return cart;
 }
+
 export function removeItem(id, products, cart) {
   for (let product of cart) {
     if (product.id === id) {
@@ -31,6 +32,7 @@ export function removeItem(id, products, cart) {
     }
   }
 }
+
 function deleteItem(id, cart) {
   cart = cart.filter((item) => item.id !== id);
   return cart;

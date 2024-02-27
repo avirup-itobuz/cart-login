@@ -26,6 +26,7 @@ function loginUser() {
 }
 
 login.addEventListener("click", loginUser);
+
 forgotPassword.addEventListener("click", () => {
   if (userEmail.value.trim().length === 0) {
     alert("invalid email");

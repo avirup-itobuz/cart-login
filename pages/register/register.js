@@ -17,6 +17,7 @@ register.addEventListener("click", registerUser);
 if (localStorage.getItem("users")) {
   users = localStorage.getItem("users");
 }
+
 function sendOtp(e) {
   if (localStorage.getItem("users")) {
     let users = JSON.parse(localStorage.getItem("users"));
