@@ -23,6 +23,7 @@ logOut[0].addEventListener("click", () => {
   localStorage.removeItem("loggedInUser");
   window.location = "/";
 });
+
 function loadProducts() {
   productContainer.innerHTML = "";
   products = JSON.parse(localStorage.getItem("products"));
@@ -47,7 +48,7 @@ function loadProducts() {
       h3.setAttribute("class", "price");
       h3.innerText = `$${product.price}`;
       product_div.append(h2, h3);
-      const cart_item = cart.find((ele) => ele.id == product.id);
+      const cart_item = cart.find((ele) => ele.id === product.id);
       if (cart_item && cart_item.quantity > 0) {
         const updateQuantity = document.createElement("div");
         updateQuantity.setAttribute("class", "update-quantity");
@@ -82,6 +83,7 @@ function loadProducts() {
   count = cart.length;
   cartBtn.innerText = count;
 }
+
 function filterProducts() {
   let filterCount = 0;
   productContainer.innerHTML = "";
@@ -114,7 +116,7 @@ function filterProducts() {
           h3.setAttribute("class", "price");
           h3.innerText = `$${product.price}`;
           product_div.append(h2, h3);
-          const cart_item = cart.find((ele) => ele.id == product.id);
+          const cart_item = cart.find((ele) => ele.id === product.id);
           if (cart_item && cart_item.quantity > 0) {
             const updateQuantity = document.createElement("div");
             updateQuantity.setAttribute("class", "update-quantity");
@@ -165,7 +167,7 @@ function filterProducts() {
           h3.setAttribute("class", "price");
           h3.innerText = `$${product.price}`;
           product_div.append(h2, h3);
-          const cart_item = cart.find((ele) => ele.id == product.id);
+          const cart_item = cart.find((ele) => ele.id === product.id);
           if (cart_item && cart_item.quantity > 0) {
             const updateQuantity = document.createElement("div");
             updateQuantity.setAttribute("class", "update-quantity");
@@ -206,6 +208,7 @@ function filterProducts() {
   count = cart.length;
   cartBtn.innerText = count;
 }
+
 function sort(param) {
   products = JSON.parse(localStorage.getItem("products"));
   if (param === "lowToHigh") products.sort((a, b) => a.price - b.price);
@@ -213,6 +216,7 @@ function sort(param) {
   localStorage.setItem("products", JSON.stringify(products));
   filterProducts();
 }
+
 function increaseCart(e) {
   products = JSON.parse(localStorage.getItem("products"));
   users = JSON.parse(localStorage.getItem("users"));
@@ -221,7 +225,7 @@ function increaseCart(e) {
   const data = addToCart(parseInt(e.target.dataset.id), products, cart);
   loggedUser.cart = data;
   for (let i = 0; i < users.length; i++) {
-    if (users[i].userId == loggedUser.userId) {
+    if (users[i].userId === loggedUser.userId) {
       users[i].cart = data;
     }
   }
@@ -230,6 +234,7 @@ function increaseCart(e) {
   if (searchWord.length > 0 || maxPrice < 2000) filterProducts();
   else loadProducts();
 }
+
 function decreaseCart(e) {
   products = JSON.parse(localStorage.getItem("products"));
   users = JSON.parse(localStorage.getItem("users"));
@@ -247,26 +252,32 @@ function decreaseCart(e) {
   if (searchWord.length > 0 || maxPrice < 2000) filterProducts();
   else loadProducts();
 }
+
 search.addEventListener("input", (e) => {
   searchWord = e.target.value.trim();
   filterProducts();
 });
+
 sortParam.addEventListener("change", (e) => {
   if (e.target.value === "lowToHigh") sort(e.target.value);
   else if (e.target.value === "highToLow") sort(e.target.value);
 });
+
 slider.addEventListener("input", (e) => {
   maxPriceSpan.innerText = "$" + e.target.value;
   maxPrice = e.target.value;
   filterProducts();
 });
+
 setInterval(() => {
   carouselImage.src = `../../images/carousel_${carouselCount++ % 3}.png`;
 }, 1500);
+
 if (!localStorage.getItem("products")) {
   localStorage.setItem("products", JSON.stringify(data));
 }
 if (!localStorage.getItem("loggedInUser")) {
   window.location = "/pages/register/register.html";
 }
+
 loadProducts();

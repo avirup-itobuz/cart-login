@@ -24,6 +24,7 @@ function loginUser() {
     alert("user not found!!");
   }
 }
+
 login.addEventListener("click", loginUser);
 forgotPassword.addEventListener("click", () => {
   if (userEmail.value.trim().length === 0) {

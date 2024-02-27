@@ -1,13 +1,15 @@
 import { validateEmail, validatePassword } from "../../helper/helper.js";
 import { data } from "../../helper/constants.js";
-let users = [];
-let generated_otp = 0;
+
 const username = document.getElementById("name");
 const useremail = document.getElementById("email");
 const password = document.getElementById("password");
 const otp = document.getElementById("otp");
 const register = document.getElementById("register");
 const getOtp = document.getElementById("sendOtp");
+
+let users = [];
+let generated_otp = 0;
 
 getOtp.addEventListener("click", sendOtp);
 register.addEventListener("click", registerUser);
@@ -52,6 +54,7 @@ function authenticateOtp() {
     return true;
   else return false;
 }
+
 function registerUser() {
   if (authenticateOtp()) {
     if (!validatePassword(password.value)) {
